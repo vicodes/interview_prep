@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //Contains Duplicates
+//Permutations in interger array I think
 public class Permutations2 {
 
     public List<List<Integer>> permuteUnique(int[] nums) {
