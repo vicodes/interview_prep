@@ -1,4 +1,4 @@
-package com.makemytrip;
+package com.DynamicProgramming;
 
 //A Dynamic Programming based Java Program for the Egg Dropping Puzzle
 class EggDroping

@@ -1,4 +1,4 @@
-package com.hardcommon;
+package com.DynamicProgramming;
 
 //DP solution- space optimized
 // operations to convert str1 to str2

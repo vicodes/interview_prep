@@ -1,4 +1,4 @@
-package com.makemytrip;
+package com.DynamicProgramming;
 
 /* Dynamic Programming Java implementation of LCS problem */
 //LCS for input Sequences “ABCDGH” and “AEDFHR” is “ADH” of length 3.

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //Needs to understand better
-public class SubArraySumK {
+public class SubArraySumEqualsK {
 
     public int subarraySum(int[] nums, int k) {
         int sum = 0, result = 0;

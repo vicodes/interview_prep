@@ -4,10 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MinWindow {
-    /*
-  Sliding Window: Use 2 Pointers To Compose A Sliding Window
-  This code passes all Leetcode test cases as of Feb. 21 2019
-*/
+
+
     public static String minWindow(String searchString, String t) {
 
         // The characters a satisfiable window must cover mapped to their frequency
