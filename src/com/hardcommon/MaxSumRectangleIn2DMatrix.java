@@ -1,7 +1,7 @@
 package com.hardcommon;
 
 
-class MaxSumIn2DMatrix {
+class MaxSumRectangleIn2DMatrix {
     public Rectangle maxSum(int matrix[][]) {
         /*
          * Record the total amount of rows and columns

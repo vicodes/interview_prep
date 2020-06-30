@@ -2,15 +2,11 @@ package com.easyCommon;
 
 import java.util.*;
 
-// JAVA Code for left Rotation of a
-// matrix by 90 degree without using
-// any extra space
+// JAVA Code for left Rotation of a matrix by 90 degree without using any extra space
 
 //There are two steps :
-//
 //Find transpose of matrix.
 //Reverse columns of the transpose(For anti-clockwise)(for clockwise reverse rows)
-
 
 class MatrixRotate {
 

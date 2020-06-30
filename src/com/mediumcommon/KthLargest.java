@@ -1,9 +1,9 @@
 package com.mediumcommon;
 
-import java.util.Collection;
+//Question Link : https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60312/AC-Clean-QuickSelect-Java-solution-avg.-O(n)-time
 
 //Done  using quick-select (Avg time complexity on O(n)). Worst case O(n^2)
-public class KLargest {
+public class KthLargest {
 
     public int findKthLargest(int[] nums, int k) {
         return quickSelect(nums, 0, nums.length - 1, k);

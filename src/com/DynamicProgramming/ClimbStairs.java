@@ -1,5 +1,8 @@
-package com.amazon;
+package com.DynamicProgramming;
 
+// Question Link : https://leetcode.com/problems/climbing-stairs/
+//Watch tushar roy explanation if not able to understand
+// This is most optimised approach. A normal dp  approach can also be done.
 public class ClimbStairs {
 
     public int climbStairs(int n) {
