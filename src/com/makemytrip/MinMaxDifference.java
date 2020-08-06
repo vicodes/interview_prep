@@ -1,16 +1,13 @@
 package com.makemytrip;
 import java.lang.*;
 import java.io.*;
-//Question to find max difference in array with  condition that  min elements should come before  max
-
+// Question Link : https://www.geeksforgeeks.org/maximum-difference-between-two-elements/
 /*
 Input : arr = {2, 3, 10, 6, 4, 8, 1}
         Output : 8
         Explanation : The maximum difference is between 10 and 2.
 */
-
 //Solved  using  kadane  algorithm
-//idea :
 //        1.  Find  min  element found  till  now
 //        2.  Find difference  from the min element found  till  now  from every element hence getting max  difference
 

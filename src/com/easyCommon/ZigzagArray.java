@@ -24,7 +24,7 @@ class ZigzagArray {
         //code
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int t = Integer.parseInt(br.readLine());
-        for (int i = 0; i < t; i++) {
+        while(t-->0) {
             int n = Integer.parseInt(br.readLine());
             int arr[] = new int[n];
             String str = br.readLine();

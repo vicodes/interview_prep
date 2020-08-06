@@ -1,8 +1,6 @@
 package com.makemytrip;
 
-//Given a string ‘str’, check if it can be constructed by taking a substring of it and appending multiple copies
-//        of the substring together.  For example "abab" can be created by appending "ab" to "ab", but "abac" cannot
-//        be created by appending a substring to itself.
+//Question Link : https://leetcode.com/problems/repeated-substring-pattern/discuss/94344/Simple-Java-solution-2-lines#
 
 import java.lang.*;
 import java.io.*;
@@ -21,6 +19,6 @@ class StringFromSubstring {
     public static void checkrepeat(String str){
         String sttr = str +  str;
         sttr  = sttr.substring(1,sttr.length()-1);
-        System.out.println(sttr.indexOf(str)!=-1);
+        System.out.println(sttr.contains(str));
     }
 }

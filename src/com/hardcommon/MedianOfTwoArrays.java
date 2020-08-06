@@ -1,4 +1,4 @@
-package com.makemytrip;
+package com.hardcommon;
 
 public class MedianOfTwoArrays {
 

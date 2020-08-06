@@ -37,7 +37,7 @@ public class LongestCommonSubsequence
 
     public static void main(String[] args)
     {
-        LongestCommonSubsequence lcs = new LongestCommonSubsequence();
+        LongestCommonSubsequence lcsObj = new LongestCommonSubsequence();
         String s1 = "AGGTAB";
         String s2 = "GXTXAYB";
 
@@ -46,8 +46,7 @@ public class LongestCommonSubsequence
         int m = X.length;
         int n = Y.length;
 
-        System.out.println("Length of LCS is" + " " +
-                lcs.lcs( X, Y, m, n ) );
+        System.out.println("Length of LCS is" + " " + lcsObj.lcs( X, Y, m, n ) );
     }
 
 }

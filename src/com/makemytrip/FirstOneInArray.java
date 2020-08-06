@@ -40,5 +40,4 @@ class FirstOneInArray {
 
     }
 }
-// This code is contributed by Arnav Kr. Mandal.
 

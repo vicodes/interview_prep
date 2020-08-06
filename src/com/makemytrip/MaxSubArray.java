@@ -1,15 +1,6 @@
 package com.makemytrip;
 
-/*Example:
-        Input
-        2
-        5
-        1 2 3 -2 5
-        Output
-        9
-        Explanation:
-        Testcase 1: Max subarray sum is 9 of elements (1, 2, 3, -2, 5) which is a contiguous subarray.*/
-
+// Question Link : https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
 // KADANE Algorithm
 
 class MaxSubArray {
