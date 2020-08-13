@@ -1,5 +1,6 @@
 package com.DynamicProgramming;
 
+// Question Link : https://www.techiedelight.com/subset-sum-problem/
 public class SubsetSum {
     public static boolean subsetSum(int[] A, int sum)
     {

@@ -1,5 +1,8 @@
 package com.DynamicProgramming;
 
+// Question :  https://leetcode.com/problems/interleaving-string/
+// Question and solution :  https://www.youtube.com/watch?v=ih2OZ9-M3OM&t=158s
+
 public class InterleavingOfTwoStrings {
 
     public boolean isInterleavedRecursive(char str1[], char str2[], char str3[],int pos1, int pos2, int pos3){

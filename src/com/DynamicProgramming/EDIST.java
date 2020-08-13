@@ -1,7 +1,6 @@
 package com.DynamicProgramming;
 
-//DP solution- space optimized
-// operations to convert str1 to str2
+// Question and Solution Link : https://www.geeksforgeeks.org/edit-distance-dp-5/
 class EDIST {
 
     static int editDistDP(String str1, String str2, int m, int n)
