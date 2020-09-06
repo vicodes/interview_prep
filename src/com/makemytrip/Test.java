@@ -1,36 +1,39 @@
 package com.makemytrip;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 class Test
 {
-    // Function to find length of longest increasing subsequence
-    public static int LIS(int[] A, int i, int n, int prev)
-    {
-        // Base case: nothing is remaining
-        if (i == n) {
-            return 0;
+
+    public static List<List<String>> suggestedProducts(String[] products, String searchWord) {
+
+        List<List<String>> result = new ArrayList<List<String>>();
+
+        Arrays.sort(products);
+        int j=1;
+        while(j<searchWord.length()){
+            List<String> li = new ArrayList<>();
+            for(int i=0;i<products.length;i++){
+                if(products[i].contains(searchWord.substring(0,j))){
+                    li.add(products[i]);
+                    if(li.size() == 3){
+                        result.add(li);
+                        break;
+                    }
+                }
+            }
+            j++;
         }
-
-        // case 1: exclude the current element and process the
-        // remaining elements
-        int excl = LIS(A, i + 1, n, prev);
-
-        // case 2: include the current element if it is greater
-        // than previous element in LIS
-        int incl = 0;
-        if (A[i] > prev) {
-            incl = 1 + LIS(A, i + 1, n, A[i]);
-        }
-
-        // return maximum of above two choices
-        return Integer.max(incl, excl);
+        return result;
     }
 
-    // Program for Longest Increasing Subsequence
+
+
     public static void main(String[] args)
     {
-        int[] A = { 2,1,3};
-
-        System.out.print("Length of LIS is "
-                + LIS(A, 0, A.length, Integer.MIN_VALUE));
+       String[] products = new String[]{"mobile","mouse","moneypot","monitor","mousepad"};
+        suggestedProducts(products, "mouse");
     }
 }
