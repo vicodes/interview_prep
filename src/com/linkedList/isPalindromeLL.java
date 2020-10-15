@@ -1,6 +1,8 @@
 package com.linkedList;
 /*Input : 121
   Ouput true*/
+
+// Can be done using stack as well.
 public class isPalindromeLL {
 
     public boolean isPalindrome(Node head) {

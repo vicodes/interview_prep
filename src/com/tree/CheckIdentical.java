@@ -5,34 +5,20 @@ import java.util.Stack;
 // Check if two trees are same
 
 public class CheckIdentical {
-    boolean isIdentical(Node root1, Node root2)
+
+    boolean identicalTrees(Node a, Node b)
     {
+        /*1. both empty */
+        if (a == null && b == null)
+            return true;
 
-        Stack<Node> st1 = new Stack<>();
-        Stack<Node> st2 = new Stack<>();
+        /* 2. both non-empty -> compare them */
+        if (a != null && b != null)
+            return (a.data == b.data && identicalTrees(a.left, b.left)
+                    && identicalTrees(a.right, b.right));
 
-        while((root1 !=null && root2 !=null) || (!st1.isEmpty() ||
-                !st2.isEmpty())){
-
-            while(root1 !=null && root2!=null){
-                st1.push(root1);
-                st2.push(root2);
-                root1 = root1.left;
-                root2 = root2.left;
-                if((root1 ==null && root2!=null) || (root1 !=null && root2==null))
-                    return false;
-            }
-            root1 = st1.pop();
-            root2 = st2.pop();
-            if(root1.data != root2.data){
-                return false;
-            }
-            root1 = root1.right;
-            root2 = root2.right;
-            if((root1 ==null && root2!=null) || (root1 !=null && root2==null))
-                return false;
-        }
-        return true;
+        /* 3. one empty, one not -> false */
+        return false;
     }
 
 }
