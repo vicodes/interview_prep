@@ -10,14 +10,14 @@ import java.util.stream.Stream;
 class Test
 {
 
+    private static boolean checkBusWithInvalidDuration(String duration){
+        duration = duration.replace(":","").replace("0","");
+        return duration.length()<1;
+    }
+
     public static void main(String[] args)
     {
-        Node node = null;
-
-    //    node = new Node(5);
-
-        if(node == null)
-            System.out.println("ues");
-
+        System.out.println(checkBusWithInvalidDuration("00:15:00"));
+        Integer.parseInt("s");
     }
 }

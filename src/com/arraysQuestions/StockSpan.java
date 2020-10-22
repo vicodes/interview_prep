@@ -6,6 +6,23 @@ import java.util.Arrays;
 
 public class StockSpan {
 
+    static int[] calculateStock(int price[], int ans[]) {
+        // Span value of first element is always 1
+        ans[0] = 1;
+
+        // Calculate span values for rest of the elements
+        for (int i = 1; i < price.length; i++) {
+            int counter = 1;
+            while ((i - counter) >= 0 && price[i] >= price[i - counter]) {
+                counter += ans[i - counter];
+            }
+            ans[i] = counter;
+        }
+        return ans;
+    }
+
+
+    // Using Stack
     static void calculateSpan(int price[], int n, int S[])
     {
         // Create a stack and push index of first element to it

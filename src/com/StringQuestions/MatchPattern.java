@@ -47,6 +47,4 @@ class MatchPattern {
         findMatchedWords(dict, pattern);
     }
 
-    // This code is contributed
-    // by rachana soma
 }
