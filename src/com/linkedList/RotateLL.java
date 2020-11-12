@@ -1,29 +1,30 @@
 package com.linkedList;
-/*Input: 1 2 3 4 5 6 7 8
-Rotate by 4
-Output: 5 6 7 8 1 2 3 4  */
+
+// Question : https://leetcode.com/problems/rotate-list/
 
 public class RotateLL {
 
     public Node rotate(Node head, int k) {
-        Node tail  = head;
-        Node curr = head;
-        int count = 0;
-        int z = k;
-        while(tail.next != null){
-            tail = tail.next;
-            count++;
-            z--;
-            if(z==1){
-                curr = tail;
-            }
-        }
-        if(k>count)
+        if (head == null)
             return head;
-        tail.next = head;
-        head = curr.next;
-        curr.next = null;
-        return head;
+
+        Node copyHead = head;
+
+        int len = 1;
+        while (copyHead.next != null) {
+            copyHead = copyHead.next;
+            len++;
+        }
+
+        copyHead.next = head;
+
+        for (int i = len - k % len; i > 1; i--)
+            head = head.next;
+
+        copyHead = head.next;
+        head.next = null;
+
+        return copyHead;
     }
 
 }

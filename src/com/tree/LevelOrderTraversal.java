@@ -6,7 +6,6 @@ import java.util.Queue;
 public class LevelOrderTraversal {
 
     Node root;
-    int level = 0;
     void printLevelOrder()
     {
         Queue<Node> queue = new LinkedList<Node>();

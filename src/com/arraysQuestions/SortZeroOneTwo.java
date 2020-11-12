@@ -2,7 +2,7 @@ package com.arraysQuestions;
 
 public class SortZeroOneTwo {
 
- // Single traversal approcach to partition into three parts using pivot.
+ // Single traversal approach to partition into three parts using pivot.
     // (https://www.techiedelight.com/sort-array-containing-0s-1s-2s-dutch-national-flag-problem/)
     public static void threeWayPartition(int[] A, int end)
     {

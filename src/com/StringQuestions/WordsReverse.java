@@ -14,14 +14,6 @@ import java.io.InputStreamReader;
         rqp.onm*/
 
 public class WordsReverse {
-    public static void main(String[] args)throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int  t =  Integer.parseInt(br.readLine());
-        for(int i=0;i<t;i++){
-            String str[] = br.readLine().split("\\.");
-            reverseString(str);
-        }
-    }
 
     public static void  reverseString(String str[]){
         for(int i=0;i<str.length;i++) {

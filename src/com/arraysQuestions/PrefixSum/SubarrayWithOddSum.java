@@ -1,15 +1,10 @@
-package com.makemytrip;
+package com.arraysQuestions.PrefixSum;
 
+// https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/discuss/754909/Java-O(n)-time-and-O(1)-space
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+public class SubarrayWithOddSum {
 
-public class Test {
-
-    public static int numOfSubarrays(int[] arr) {
+    public int numOfSubarrays(int[] arr) {
         int odd = 0, even = 1, res = 0, sum = 0, mod = 1_000_000_007; // treat empty subarray as even
         for (int n : arr) {
             sum += n;
@@ -25,7 +20,4 @@ public class Test {
     }
 
 
-    public static void main(String[] args) {
-        System.out.println(numOfSubarrays(new int[]{2,4,9}));
-    }
 }
