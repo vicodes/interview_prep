@@ -1,8 +1,7 @@
 package com.linkedList;
-/*Input : 121
-  Ouput true*/
 
-// Can be done using stack as well.
+// https://leetcode.com/problems/palindrome-linked-list/discuss/64501/Java-easy-to-understand
+
 public class isPalindromeLL {
 
     public boolean isPalindrome(Node head) {

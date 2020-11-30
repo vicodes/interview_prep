@@ -1,32 +1,30 @@
 package com.linkedList;
-
-/*Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-Explanation: 342 + 465 = 807.*/
-
+//https://leetcode.com/problems/add-two-numbers/submissions/
 public class AddNumbers {
 
     public Node addTwoNumbers(Node l1, Node l2) {
-        Node c1 = l1;
-        Node c2 = l2;
-        Node sentinel = new Node(0);
-        Node d = sentinel;
+
+        Node node = new Node(-1);
+        Node head = node;
         int sum = 0;
-        while (c1 != null || c2 != null) {
+
+        while (l1 != null || l2 != null) {
+
+            if (l1 != null) {
+                sum += l1.data;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.data;
+                l2 = l2.next;
+            }
+            node.next = new Node(sum % 10);
+            node = node.next;
             sum /= 10;
-            if (c1 != null) {
-                sum += c1.data;
-                c1 = c1.next;
-            }
-            if (c2 != null) {
-                sum += c2.data;
-                c2 = c2.next;
-            }
-            d.next = new Node(sum % 10);
-            d = d.next;
         }
-        if (sum / 10 == 1)
-            d.next = new Node(1);
-        return sentinel.next;
+
+        if(sum != 0)
+            node.next = new Node(sum);
+        return head.next;
     }
 }

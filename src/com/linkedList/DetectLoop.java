@@ -1,24 +1,26 @@
 package com.linkedList;
 
 import java.util.HashSet;
-
+// https://leetcode.com/problems/linked-list-cycle/submissions/
 public class DetectLoop {
 
     Node head;
 
     //Using two pointers - Fastest method
 
-    int detectLoop() {
-        Node slow_p = head, fast_p = head;
-        while (slow_p != null && fast_p != null && fast_p.next != null) {
-            slow_p = slow_p.next;
-            fast_p = fast_p.next.next;
-            if (slow_p == fast_p) {
-                System.out.println("Found loop");
-                return 1;
-            }
+   public Boolean detectLoop() {
+        if(head == null) return false;
+
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow)
+                return true;
         }
-        return 0;
+        return false;
     }
 
     //Using hashing

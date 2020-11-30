@@ -4,19 +4,19 @@ import java.util.HashSet;
 
 public class RemoveLoop {
 
-    static boolean removeLoop(Node h)
+    static boolean removeLoop(Node head)
     {
         HashSet<Node> s = new HashSet<Node>();
         Node prev = null;
-        while (h != null) {
-            if (s.contains(h)) {
+        while (head != null) {
+            if (s.contains(head)) {
                 prev.next = null;
                 return true;
             }
             else {
-                s.add(h);
-                prev = h;
-                h = h.next;
+                s.add(head);
+                prev = head;
+                head = head.next;
             }
         }
         return false;

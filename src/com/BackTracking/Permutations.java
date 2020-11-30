@@ -2,18 +2,17 @@ package com.BackTracking;
 
 import java.util.ArrayList;
 import java.util.List;
-//Permutations in interger array I think
-
+// https://leetcode.com/problems/permutations/discuss/18239/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partioning)
 public class Permutations {
 
-    public List<List<Integer>> permute(int[] nums) {
+    public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> list = new ArrayList<>();
         // Arrays.sort(nums); // not necessary
         backtrack(list, new ArrayList<>(), nums);
         return list;
     }
 
-    private void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums){
+    private static void backtrack(List<List<Integer>> list, List<Integer> tempList, int [] nums){
         if(tempList.size() == nums.length){
             list.add(new ArrayList<>(tempList));
         } else{
@@ -22,8 +21,14 @@ public class Permutations {
                 tempList.add(nums[i]);
                 backtrack(list, tempList, nums);
                 tempList.remove(tempList.size() - 1);
+                //// draw recursion tree to understand above line. Also in imp algo doc.
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] nums = new int[]{1,2,3};
+        permute(nums);
     }
 
 }

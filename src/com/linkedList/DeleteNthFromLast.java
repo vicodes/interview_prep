@@ -1,5 +1,6 @@
 package com.linkedList;
 
+//https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 public class DeleteNthFromLast {
 
     // Other approach can be by calculating size of linkedlist

@@ -1,9 +1,42 @@
 package com.linkedList;
 
 // Given 1->2->3->4, reorder it to 1->4->2->3. (Hard Problem)
+// https://leetcode.com/problems/reorder-list/
+
+
+import java.util.Stack;
 
 public class ReorderLL {
+    // 1. My own solution. Using stack to pick one Node from list and
+    // one from stack and interchange.
+    public void reorderListMine(Node head) {
+        if(head == null) return;
 
+        Node curr = head;
+
+        Stack<Node> st = new Stack<>();
+        int len = 0;
+        while(curr != null){
+            st.push(curr);
+            len++;
+            curr = curr.next;
+        }
+        Node after = null ;
+        for(int i=0; i<len-1; i++){
+
+            if(i%2 == 0){
+                after = head.next;
+                head.next = st.pop();
+            }
+            else
+                head.next = after;
+            head = head.next;
+        }
+        head.next = null;
+    }
+
+
+   // 2.Copied Solution from leetcode with better space complexity.
     public void reorderList(Node head) {
         if(head==null||head.next==null) return;
 

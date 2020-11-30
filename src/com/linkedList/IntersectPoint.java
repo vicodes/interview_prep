@@ -1,45 +1,42 @@
 package com.linkedList;
 
+// https://leetcode.com/problems/intersection-of-two-linked-lists/
 public class IntersectPoint {
 
-    int intersectPoint(Node head1, Node head2)
+    public Node intersectPoint(Node head1, Node head2)
     {
-        // code here
-        int c1 =0 ,c2=0;
-        Node thead1 = head1;
-        Node thead2 = head2;
-        //Find length of first LL
-        while(head1 != null){
-            c1++;
-            head1 = head1.next;
-        }
-        //Find length of second LL
-        while(head2 != null){
-            c2++;
-            head2 = head2.next;
-        }
+        // Find length of the lists
+        int len1 = length(head1);
+        int len2 = length(head2);
+
         //Move head by difference whichever LL has greater Length
-        int n = Math.abs(c1-c2);
-        if(c1 > c2){
+        int n = Math.abs(len1-len2);
+
+        if(len1 > len2)
             while(n-- >0){
-                thead1 = thead1.next;
+                head1 = head1.next;
             }
-        }
-        else if(c2>c1){
+
+        else if(len2 >len1){
             while(n-- > 0){
-                thead2 = thead2.next;
+                head2 = head2.next;
             }
         }
         //Return the intersection node
-        while(thead1 != null && thead2  != null){
-            if(thead1.next == thead2.next){
-                return thead1.next.data;
-            }
-            thead1 = thead1.next;
-            thead2 = thead2.next;
+        while(head1 != head2){
+            head1 = head1.next;
+            head2 = head2.next;
         }
-        return -1;
+        return head1;
 
+    }
+    private int length(Node node) {
+        int length = 0;
+        while (node != null) {
+            node = node.next;
+            length++;
+        }
+        return length;
     }
 
 }

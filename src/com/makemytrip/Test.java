@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class Test {
@@ -26,6 +27,8 @@ public class Test {
 
 
     public static void main(String[] args) {
-        System.out.println(numOfSubarrays(new int[]{2,4,9}));
+        LinkedList<Integer> li = new LinkedList<>();
+        li.add(5);li.add(1);li.add(10);
+        System.out.println("apple".compareTo("banana"));
     }
 }

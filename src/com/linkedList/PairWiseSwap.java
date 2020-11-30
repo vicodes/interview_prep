@@ -1,22 +1,25 @@
 package com.linkedList;
 
-/*Input: 1 2 2 4 5 6 7 8
-  Output:2 1 4 2 6 5 8 7 */
+// https://leetcode.com/problems/swap-nodes-in-pairs/submissions/
 
 public class PairWiseSwap {
+    public Node swapPairs(Node head) {
 
-    public Node pairwiseSwap(Node node) {
-        Node curr = node;
-        Node after = node.next;
-        int temp = 0;
-        while(curr != null && after != null){
-            temp = curr.data;
-            curr.data = after.data;
-            after.data = temp;
-            curr = after.next;
-            if(curr != null)
-                after = curr.next;
+        if(head == null || head.next == null) return head;
+
+        Node prev = null;
+        Node curr = head;
+        Node after = head.next;
+        head = head.next;
+
+        while(curr !=null && after != null){
+            curr.next = after.next;
+            after.next = curr;
+            if(prev != null) prev.next  = after;
+            prev = curr;
+            curr = curr.next;
+            if(curr != null)after = curr.next;
         }
-        return node;
+        return head;
     }
 }

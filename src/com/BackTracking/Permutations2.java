@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//Contains Duplicates
-//Permutations in interger array I think
+// Question : https://leetcode.com/problems/permutations-ii/
+// Use solution mentioned in permutations-1 as pattern is same for many backtracking questions.
+// Solution : https://leetcode.com/problems/permutations/discuss/18239/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partioning)
 public class Permutations2 {
 
     public List<List<Integer>> permuteUnique(int[] nums) {
