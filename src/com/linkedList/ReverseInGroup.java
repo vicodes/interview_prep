@@ -27,11 +27,10 @@ public class ReverseInGroup {
 
     public Node reverse(Node begin, Node end){
         Node curr = begin.next;
-        Node after, first;
+        Node first = curr;
         Node prev = begin;
-        first = curr;
         while (curr!=end){
-            after = curr.next;
+            Node after = curr.next;
             curr.next = prev;
             prev = curr;
             curr = after;

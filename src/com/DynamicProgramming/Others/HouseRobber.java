@@ -16,4 +16,16 @@ public class HouseRobber {
         return prev1;
     }
 
+
+    // Recursive approach
+    public int robRecursive(int[] nums) {
+        return rob(nums, nums.length - 1);
+    }
+    private int rob(int[] nums, int i) {
+        if (i < 0) {
+            return 0;
+        }
+        return Math.max(rob(nums, i - 2) + nums[i], rob(nums, i - 1));
+    }
+
 }

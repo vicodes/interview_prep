@@ -1,63 +1,42 @@
 package com.StringQuestions;
 
-// Question and solution : https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
-// Explanation : https://www.youtube.com/watch?v=UflHuQj6MVA&t=1s
+// Question and solution : https://leetcode.com/problems/longest-palindromic-substring/discuss/2928/Very-simple-clean-java-solution
+
+// Idea is to expand around every substring in the given String. Consider eg. babab. Extend around b(index=0) and check if its left and right parts
+// equal. Since none are there continue. Now take ba considering even length palindromic substring. they themselves not equal hence continue.
+// Take 'a' (index=1), it is equal to itself, then expand around it both sides until an un-equal character is found. Record lo and maxLen to return
+// answer as substring later.
 
 public class LongestPalindromicSubstring {
 
-    static String longestPalSubstr(String str)
-    {
-        // get length of input string
-        int n = str.length();
+    private int lo, maxLen;
 
-        // table[i][j] will be false if substring str[i..j] is not palindrome.
-        // Else table[i][j] will be true
-        boolean table[][] = new boolean[n][n];
+    public String longestPalindrome(String s) {
+        int len = s.length();
+        if (len < 2)
+            return s;
 
-        // All substrings of length 1 are palindromes
-        int maxLength = 1;
-        for (int i = 0; i < n; ++i)
-            table[i][i] = true;
-
-        // check for sub-string of length 2.
-        int start = 0;
-        for (int i = 0; i < n - 1; ++i) {
-            if (str.charAt(i) == str.charAt(i + 1)) {
-                table[i][i + 1] = true;
-                start = i;
-                maxLength = 2;
-            }
+        for (int i = 0; i < len-1; i++) {
+            extendPalindrome(s, i, i);  //assume odd length, try to extend Palindrome as possible
+            extendPalindrome(s, i, i+1); //assume even length.
         }
-
-        // Check for lengths greater than 2.
-        // k is length of substring
-        for (int k = 3; k <= n; ++k) {
-
-            // Fix the starting index
-            for (int i = 0; i < n - k + 1; ++i) {
-                // Get the ending index of substring from
-                // starting index i and length k
-                int j = i + k - 1;
-
-                // checking for sub-string from ith index to jth index iff str.charAt(i+1) to
-                // str.charAt(j-1) is a palindrome
-                if (table[i + 1][j - 1] && str.charAt(i) == str.charAt(j)) {
-
-                    table[i][j] = true;
-                    if (k > maxLength) {
-                        start = i;
-                        maxLength = k;
-                    }
-                }
-            }
-        }
-        return str.substring(start,start+maxLength);
+        return s.substring(lo, lo + maxLen);
     }
 
-    // Driver program to test above functions
+    private void extendPalindrome(String s, int j, int k) {
+        while (j >= 0 && k < s.length() && s.charAt(j) == s.charAt(k)) {
+            j--;
+            k++;
+        }
+        if (maxLen < k - j - 1) {
+            lo = j + 1;
+            maxLen = k - j - 1;
+        }
+    }
+
     public static void main(String[] args) {
-        String str = "abbaxxe";
-        System.out.println("String  is: " + longestPalSubstr(str));
+        LongestPalindromicSubstring ll = new LongestPalindromicSubstring();
+        ll.longestPalindrome("babad");
     }
 }
 

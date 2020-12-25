@@ -1,7 +1,7 @@
 package com.arraysQuestions.kadaneAlgo;
 
 // Question Link : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-//  USING KADANE Alogorithm
+//  USING KADANE Algorithm
 
 public class StockBuySell {
 

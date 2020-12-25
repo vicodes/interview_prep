@@ -1,58 +1,26 @@
 package com.DynamicProgramming.Others;
 
-//Question link : https://www.geeksforgeeks.org/optimal-strategy-for-a-game-dp-31/
-//Explanation Link : https://algorithms.tutorialhorizon.com/dynamic-programming-coin-in-a-line-game-problem/
+// https://leetcode.com/problems/predict-the-winner/discuss/96838/Java-'1-Line'-Recursive-Solution-O(n2)-Time-and-O(n)-Space
 
-public class GameStrategy
-{
-    public static int calculate(int[][] T, int i, int j) {
-        if (i <= j) {
-            return T[i][j];
-        }
-        return 0;
+public class GameStrategy {
+    int[][] dp;
+
+    public boolean PredictTheWinner(int[] nums) {
+        dp = new int[nums.length][nums.length];
+        return helper(nums, 0, nums.length-1,dp)>=0;
+
     }
+    private int helper(int[] nums, int s, int e, int[][] dp){
 
-    public static int optimalStrategy(int[] coin)
-    {
-        int n = coin.length;
+        if(s==e)
+            return nums[e];
+        if(dp[s][e] !=0)
+            return dp[s][e];
 
-        // base case: one pot left, only one choice possible
-        if (n == 1) {
-            return coin[0];
+        else{
+            int start = nums[s] - helper(nums, s+1, e,dp);
+            int end = nums[e]- helper(nums, s, e-1,dp);
+            return dp[s][e] = Math.max(start, end);
         }
-
-        // if we're left with only two pots, choose one with maximum coins
-        if (n  == 2) {
-            return Integer.max(coin[0], coin[1]);
-        }
-
-        // create a dynamic 2D matrix to store sub-problem solutions
-        int[][] T = new int[n][n];
-
-        for (int iteration = 0; iteration < n ; iteration++)
-        {
-            for (int i = 0, j = iteration; j < n ; i++, j++)
-            {
-                int start = coin[i] + Integer.min(calculate(T, i + 2, j),
-                        calculate(T, i + 1, j - 1));
-
-                int end = coin[j] + Integer.min(calculate(T, i + 1, j - 1),
-                        calculate(T, i, j - 2));
-
-                T[i][j] = Integer.max(start, end);
-            }
-        }
-
-        return T[0][n - 1];
-    }
-
-    // Pots of Gold Game using Dynamic Programming
-    public static void main(String[] args)
-    {
-        // pots of gold arranged in a line
-        int[] coin = { 4, 6, 2, 3 };
-
-        System.out.println("Maximum coins collected by player is "
-                + optimalStrategy(coin));
     }
 }

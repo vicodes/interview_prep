@@ -2,7 +2,8 @@ package com.Miscellaneous;
 
 // https://leetcode.com/problems/trapping-rain-water/discuss/17357/Sharing-my-simple-c%2B%2B-code%3A-O(n)-time-O(1)-space
 // O(N) time and O(N) space solution.
-// Can be done in O(1) space as well - needs to understand from leetcode
+
+// Below solution from-- https://www.techiedelight.com/trapping-rain-water-within-given-set-bars/
 public class TrappingRainWater {
 
     public static int trap(int[] bars)
