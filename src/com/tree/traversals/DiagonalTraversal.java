@@ -13,11 +13,14 @@ public class DiagonalTraversal {
         queue.add(root);
         Node temp = new Node(-1); // identifier for every diagonal
 
-        while(root != null)
+        while(root != null) {
             queue.add(root);
+            root = root.right;
+        }
         queue.add(temp);
 
         while(queue.size() != 1){
+
             Node front = queue.poll();
             if(front != temp){
                 System.out.println(front.data);

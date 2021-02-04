@@ -8,29 +8,18 @@ class KnightSteps
 {
 
     // Class for storing a cell's data
-    static class cell
+    static class Cell
     {
         int x, y;
-        int dis;
-        public cell(int x, int y, int dis)
+        int dist;
+        public Cell(int x, int y, int dist)
         {
             this.x = x;
             this.y = y;
-            this.dis = dis;
+            this.dist = dist;
         }
     }
 
-    // Utility method returns true if (x, y) lies
-// inside Board
-    static boolean isInside(int x, int y, int N)
-    {
-        if (x >= 1 && x <= N && y >= 1 && y <= N)
-            return true;
-        return false;
-    }
-
-    // Method returns minimum step
-// to reach target position
     static int minStepToReachTarget(int knightPos[], int targetPos[],
                                     int N)
     {
@@ -39,51 +28,34 @@ class KnightSteps
         int dy[] = {-1, -2, -2, -1, 1, 2, 2, 1};
 
         // queue for storing states of knight in board
-        List<cell> q = new ArrayList<>();
-
-        // push starting position of knight with 0 distance
-        q.add(new cell(knightPos[0], knightPos[1], 0));
-
-        cell t ;
-        int x, y;
+        Queue<Cell> queue = new LinkedList<>();
+        queue.add(new Cell(knightPos[0], knightPos[1], 0));
         boolean visit[][] = new boolean[N + 1][N + 1];
-
-        // make all cell unvisited
-        for (int i = 1; i <= N; i++)
-            for (int j = 1; j <= N; j++)
-                visit[i][j] = false;
-
         visit[knightPos[0]][knightPos[1]] = true;
 
-        while (!q.isEmpty())
+        while (!queue.isEmpty())
         {
-            t = q.get(0);
-            q.remove(0);
+            Cell cell = queue.poll();
 
             // if current cell is equal to target cell,
             // return its distance
-            if (t.x == targetPos[0] && t.y == targetPos[1])
-                return t.dis;
+            if (cell.x == targetPos[0] && cell.y == targetPos[1])
+                return cell.dist;
 
             // loop for all reachable states
-            for (int i = 0; i < 8; i++)
-            {
-                x = t.x + dx[i];
-                y = t.y + dy[i];
+            for (int i = 0; i < 8; i++) {
+                int x = cell.x + dx[i];
+                int y = cell.y + dy[i];
 
-                // If reachable state is not yet visited and
-                // inside board, push that state into queue
-                if (isInside(x, y, N) && !visit[x][y])
-                {
+                if (x >= 1 && x <= N && y >= 1 && y <= N && !visit[x][y]) {
                     visit[x][y] = true;
-                    q.add(new cell(x, y, t.dis + 1));
+                    queue.add(new Cell(x, y, cell.dist + 1));
                 }
             }
         }
         return Integer.MAX_VALUE;
     }
 
-    // Driver code
     public static void main(String[] args)
     {
         int N = 30;
@@ -92,5 +64,3 @@ class KnightSteps
         System.out.println(minStepToReachTarget(knightPos, targetPos, N));
     }
 }
-
-// This code contributed by Rajput-Ji

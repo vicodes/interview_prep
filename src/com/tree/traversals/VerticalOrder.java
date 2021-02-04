@@ -43,13 +43,11 @@ public class VerticalOrder {
 
             map.put(hd,list);
 
-            if(node.left != null){
+            if(node.left != null)
                 q.add(new QueueObj(node.left,hd-1));
-            }
 
-            if(node.right != null){
+            if(node.right != null)
                 q.add(new QueueObj(node.right,hd+1));
-            }
         }
 
         for(Map.Entry<Integer, ArrayList<Integer>> entry:map.entrySet()){

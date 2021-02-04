@@ -3,8 +3,9 @@ package com.linkedList;
 // https://leetcode.com/problems/intersection-of-two-linked-lists/
 public class IntersectPoint {
 
-    public Node intersectPoint(Node head1, Node head2)
-    {
+    public Node intersectPoint(Node head1, Node head2) {
+
+        if(head1 == null || head2 ==null) return null;
         // Find length of the lists
         int len1 = length(head1);
         int len2 = length(head2);

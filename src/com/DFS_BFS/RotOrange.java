@@ -40,10 +40,8 @@ public class RotOrange {
                     for(int dir[] : dirs) {
                         int x = point[0] + dir[0];
                         int y = point[1] + dir[1];
-                        //if x or y is out of bound
-                        //or the orange at (x , y) is already rotten
-                        //or the cell at (x , y) is empty
-                        //we do nothing
+                        //if x or y is out of bound or the orange at (x , y) is already rotten
+                        //or the cell at (x , y) is empty we do nothing
                         if(x < 0 || y < 0 || x >= rows || y >= cols || grid[x][y] == 0 || grid[x][y] == 2) continue;
                         //mark the orange at (x , y) as rotten
                         grid[x][y] = 2;

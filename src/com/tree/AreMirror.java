@@ -1,21 +1,22 @@
 package com.tree;
 
+// https://leetcode.com/problems/symmetric-tree/submissions/
+
 public class AreMirror {
 
-    boolean areMirror(Node a, Node b)
-    {
-        // Your code here
-        if(a == null && b== null){
+    public boolean isSymmetric(TreeNode root) {
+        if(root == null)
             return true;
-        }
+        return checkSymmetric(root.left, root.right);
 
-        if(a == null || b== null){
-            return false;
-        }
+    }
 
-        if(a.data != b.data){
+    private boolean checkSymmetric(TreeNode node1, TreeNode node2){
+        if(node1 == null &&  node2 == null)
+            return true;
+        if(node1 == null || node2 == null || node1.val != node2.val)
             return false;
-        }
-        return (areMirror(a.left,b.right) && areMirror(a.right,b.left));
+
+        return checkSymmetric(node1.left, node2.right) && checkSymmetric(node1.right,node2.left);
     }
 }

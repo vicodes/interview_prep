@@ -3,7 +3,7 @@ package com.tree.traversals;
 import com.tree.Node;
 
 import java.util.Stack;
-
+//https://www.geeksforgeeks.org/level-order-traversal-in-spiral-form/
 public class SpiralLevelOrder {
 
     void printSpiral(Node node) {
@@ -24,8 +24,7 @@ public class SpiralLevelOrder {
             // Print nodes of current level from s1 and push nodes of
             // next level to s2
             while (!s1.empty()) {
-                Node temp = s1.peek();
-                s1.pop();
+                Node temp = s1.pop();
                 System.out.print(temp.data + " ");
 
                 // Note that is right is pushed before left
@@ -39,8 +38,7 @@ public class SpiralLevelOrder {
             // Print nodes of current level from s2 and push nodes of
             // next level to s1
             while (!s2.empty()) {
-                Node temp = s2.peek();
-                s2.pop();
+                Node temp = s2.pop();
                 System.out.print(temp.data + " ");
 
                 // Note that is left is pushed before right

@@ -11,27 +11,27 @@ import java.util.concurrent.TimeUnit;
 
 public class Test {
 
-    public  static void rotate(int[] nums, int k) {
+    public static int change(int amount, int[] coins) {
 
-        int  n = nums.length;
-        int numToRotate = nums[0];
-        int curr = 0, start = 0, temp = 0;
+        return coinChanges(coins, amount);
+    }
 
-        for(int j=0 ; j<n; j++){
-            temp = nums[(curr +k) %n];
-            nums[(curr +k) %n] = numToRotate;
-            numToRotate = temp;
-            curr = (curr + k) % n;
-            if(curr == start && ++curr < n){
-                numToRotate = nums[++curr];
-                start++;
+
+    public static int coinChanges(int[] coins, int amount){
+
+        if(amount == 0) return 1;
+        int res  = 0;
+        for(int c : coins){
+            if(c <= amount){
+                res += coinChanges(coins, amount-c);
             }
         }
+        return res;
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[]{-1,-100,3,99};
-        rotate(arr,2);
+        int[] arr = new int[]{1, 2, 5};
+        System.out.println(change(5,arr));
 
     }
 }
