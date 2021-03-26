@@ -28,20 +28,19 @@ public class SortZeroOneTwoLL {
             {
                 zero.next = curr;
                 zero = zero.next;
-                curr = curr.next;
             }
             else if (curr.data == 1)
             {
                 one.next = curr;
                 one = one.next;
-                curr = curr.next;
             }
             else
             {
                 two.next = curr;
                 two = two.next;
-                curr = curr.next;
             }
+            curr = curr.next;
+
         }
         // Attach three lists
         zero.next = (oneD.next!=null) ? (oneD.next) : (twoD.next);
